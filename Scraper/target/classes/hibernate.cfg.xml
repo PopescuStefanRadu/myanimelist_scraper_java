@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/anime_proj</property>
+        <property name="connection.pool_size">10</property>
+        <property name="connection.username">radu</property>
+        <property name="connection.password">datedreq333</property>
+        <mapping class="Entities.Anime"/>
+        <mapping class="Entities.AnimeGenres"/>
+        <mapping class="Entities.AnimeAltTitle"/>
+        <mapping class="Entities.Animetype"/>
+        <mapping class="Entities.Character"/>
+        <mapping class="Entities.Genre"/>
+        <mapping class="Entities.Licensor"/>
+        <mapping class="Entities.Mangaln"/>
+        <mapping class="Entities.People"/>
+        <mapping class="Entities.Producers"/>
+        <mapping class="Entities.Rating"/>
+        <mapping class="Entities.RelatedAnime"/>
+        <mapping class="Entities.Statistic"/>
+        <mapping class="Entities.Studio"/>
+        <mapping class="Entities.Adaptation"/>
+        <mapping class="Entities.AnimeCharacters"/>
+        <mapping class="Entities.AnimeLicensors"/>
+        <mapping class="Entities.AnimePersons"/>
+        <mapping class="Entities.AnimeProducers"/>
+        <mapping class="Entities.AnimeStudios"/>
+        <mapping class="Entities.AnimeRelationship"/>
+        <mapping class="Entities.Characterroles"/>
+        <mapping class="Entities.PersonRoles"/>
+        <mapping class="Entities.AnimeImage"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+
+</hibernate-configuration>

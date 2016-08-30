@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - anime_proj@localhost" uuid="66a64c41-b4a8-4dcd-9cdf-cb0ada4bb746">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+  </data-source>
+  <data-source name="hibernate.cfg.xml/Hibernate" uuid="49b634ad-b5b2-4733-99b2-75a6fa82dcc4">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="anime_proj"/>
+      <table id="2" parent="1" name="adaptations"/>
+      <table id="3" parent="1" name="anime"/>
+      <table id="4" parent="1" name="anime_characters"/>
+      <table id="5" parent="1" name="anime_genres"/>
+      <table id="6" parent="1" name="anime_licensors"/>
+      <table id="7" parent="1" name="anime_people"/>
+      <table id="8" parent="1" name="anime_producers"/>
+      <table id="9" parent="1" name="anime_studios"/>
+      <table id="10" parent="1" name="animealttitles"/>
+      <table id="11" parent="1" name="animeimages"/>
+      <table id="12" parent="1" name="animerelationships"/>
+      <table id="13" parent="1" name="animetype"/>
+      <table id="14" parent="1" name="characterroles"/>
+      <table id="15" parent="1" name="characters"/>
+      <table id="16" parent="1" name="genres"/>
+      <table id="17" parent="1" name="licensors"/>
+      <table id="18" parent="1" name="mangaln"/>
+      <table id="19" parent="1" name="people"/>
+      <table id="20" parent="1" name="peopleroles"/>
+      <table id="21" parent="1" name="producers"/>
+      <table id="22" parent="1" name="rating"/>
+      <table id="23" parent="1" name="relatedanime"/>
+      <table id="24" parent="1" name="statistics"/>
+      <table id="25" parent="1" name="studios"/>
+      <column id="26" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="27" parent="2" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="28" parent="2" name="adaptation">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="29" parent="2" name="FK_adaptations_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="30" parent="2" name="FK_adaptations_mangaln_adaptation_idx">
+        <columns>adaptation</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="31" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="32" parent="2" name="FK_adaptations_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="33" parent="2" name="FK_adaptations_mangaln_adaptation">
+        <columns>adaptation</columns>
+        <ref-key>~.mangaln.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="34" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="35" parent="3" name="Title">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="36" parent="3" name="Type">
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="37" parent="3" name="Episodes">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="38" parent="3" name="Status">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="39" parent="3" name="StartDate">
+        <data-type>date</data-type>
+      </column>
+      <column id="40" parent="3" name="FinishDate">
+        <data-type>date</data-type>
+      </column>
+      <column id="41" parent="3" name="PremiereSeason">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="42" parent="3" name="Source">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="43" parent="3" name="Duration">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="44" parent="3" name="Rating">
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="45" parent="3" name="description">
+        <data-type>varchar(3000)</data-type>
+      </column>
+      <column id="46" parent="3" name="broadcast">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <index id="47" parent="3" name="FK_anime_animerating_id_idx">
+        <columns>Rating</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="48" parent="3" name="FK_anime_animetype_id_idx">
+        <columns>Type</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="49" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="50" parent="3" name="FK_anime_animerating_id">
+        <columns>Rating</columns>
+        <ref-key>~.rating.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="51" parent="3" name="FK_anime_animetype_id">
+        <columns>Type</columns>
+        <ref-key>~.animetype.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="52" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="53" parent="4" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="54" parent="4" name="character">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="55" parent="4" name="role">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="56" parent="4" name="FK_anime-characters_anime_id_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="57" parent="4" name="FK_anime-characters_characterroles_id_idx">
+        <columns>role</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="58" parent="4" name="FK_anime-characters_characters_id_idx">
+        <columns>character</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="59" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="60" parent="4" name="FK_anime-characters_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="61" parent="4" name="FK_anime-characters_characterroles_role">
+        <columns>role</columns>
+        <ref-key>~.characterroles.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="62" parent="4" name="FK_anime-characters_characters_char">
+        <columns>character</columns>
+        <ref-key>~.characters.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="63" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="64" parent="5" name="Anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="65" parent="5" name="Genre">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="66" parent="5" name="FK_animegenres_anime_id_idx">
+        <columns>Anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="67" parent="5" name="FK_animegenres_genre_id_idx">
+        <columns>Genre</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="68" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="69" parent="5" name="FK_animegenres_anime_anime">
+        <columns>Anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="70" parent="5" name="FK_animegenres_genre_genre">
+        <columns>Genre</columns>
+        <ref-key>~.genres.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="71" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="72" parent="6" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="73" parent="6" name="licensor">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="74" parent="6" name="FK_anime-licensors_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="75" parent="6" name="FK_anime-licensors_licensors_licensor_idx">
+        <columns>licensor</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="76" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="77" parent="6" name="FK_anime-licensors_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="78" parent="6" name="FK_anime-licensors_licensors_licensor">
+        <columns>licensor</columns>
+        <ref-key>~.licensors.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="79" parent="7" name="idAnime_people">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="80" parent="7" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="81" parent="7" name="people">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="82" parent="7" name="role">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="83" parent="7" name="FK_anime-people_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="84" parent="7" name="FK_anime-people_peopleroles_id_idx">
+        <columns>role</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="85" parent="7" name="FK_anime-people_people_id_idx">
+        <columns>people</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="86" parent="7" name="PRIMARY">
+        <columns>idAnime_people</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="87" parent="7" name="FK_anime-people_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="88" parent="7" name="FK_anime-people_peopleroles_role">
+        <columns>role</columns>
+        <ref-key>~.peopleroles.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="89" parent="7" name="FK_anime-people_people_people">
+        <columns>people</columns>
+        <ref-key>~.people.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="90" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="91" parent="8" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="92" parent="8" name="producer">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="93" parent="8" name="FK_anime-producers_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="94" parent="8" name="FK_anime-producers_id_idx">
+        <columns>producer</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="95" parent="8" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="96" parent="8" name="FK_anime-producers_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="97" parent="8" name="FK_anime-producers_producers_producer">
+        <columns>producer</columns>
+        <ref-key>~.producers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="98" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="99" parent="9" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="100" parent="9" name="studio">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="101" parent="9" name="FK_anime-studios_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="102" parent="9" name="FK_anime-studios_studios_id_idx">
+        <columns>studio</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="103" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="104" parent="9" name="FK_anime-studios_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="105" parent="9" name="FK_anime-studios_studios_studio">
+        <columns>studio</columns>
+        <ref-key>~.studios.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="106" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="107" parent="10" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="108" parent="10" name="type">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="109" parent="10" name="title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <index id="110" parent="10" name="FK_animealttitles_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="111" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="112" parent="10" name="FK_animealttitles_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="113" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="114" parent="11" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="115" parent="11" name="path">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <index id="116" parent="11" name="FK_animeimages_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="117" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="118" parent="11" name="FK_animeimages_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="119" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="120" parent="12" name="title">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="121" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="122" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="123" parent="13" name="type">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="124" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="125" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="126" parent="14" name="title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="127" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="128" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="129" parent="15" name="Name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="130" parent="15" name="Role">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="131" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="132" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="133" parent="16" name="title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="134" parent="16" name="description">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="135" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="136" parent="17" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="137" parent="17" name="Licensor">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="138" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="139" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="140" parent="18" name="type">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="141" parent="18" name="Title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="142" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="143" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="144" parent="19" name="givenName">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="145" parent="19" name="birthday">
+        <data-type>date</data-type>
+      </column>
+      <column id="146" parent="19" name="website">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="147" parent="19" name="more">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="148" parent="19" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="149" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="150" parent="20" name="title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="151" parent="20" name="description">
+        <data-type>mediumtext</data-type>
+      </column>
+      <key id="152" parent="20" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="153" parent="21" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="154" parent="21" name="title">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="155" parent="21" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="156" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="157" parent="22" name="rating">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="158" parent="22" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="159" parent="23" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="160" parent="23" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="161" parent="23" name="RelatedAnime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="162" parent="23" name="Relationship">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="163" parent="23" name="FK_relatedanime_animerels_relationship_idx">
+        <columns>Relationship</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="164" parent="23" name="FK_relatedanime_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="165" parent="23" name="FK_relatedanime_anime_relanime_idx">
+        <columns>RelatedAnime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="166" parent="23" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="167" parent="23" name="FK_relatedanime_animerels_relationship">
+        <columns>Relationship</columns>
+        <ref-key>~.animerelationships.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="168" parent="23" name="FK_relatedanime_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="169" parent="23" name="FK_relatedanime_anime_relanime">
+        <columns>RelatedAnime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="170" parent="24" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="171" parent="24" name="anime">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="172" parent="24" name="Score">
+        <data-type>float</data-type>
+      </column>
+      <column id="173" parent="24" name="Ranked">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="174" parent="24" name="Popularity">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="175" parent="24" name="Members">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="176" parent="24" name="noPeopleScored">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="177" parent="24" name="Favorites">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="178" parent="24" name="FK_statistics_anime_anime_idx">
+        <columns>anime</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="179" parent="24" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="180" parent="24" name="FK_statistics_anime_anime">
+        <columns>anime</columns>
+        <ref-key>~.anime.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="181" parent="25" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="182" parent="25" name="title">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="183" parent="25" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
